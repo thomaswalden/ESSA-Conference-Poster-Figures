@@ -60,11 +60,11 @@ SUMVEplot<-ggplot(SUMVE, aes(x = workingdata_f, y = VE, colour= session_f)) +
                  #scale_colour_grey()
   #scale_colour_manual(values = c("#ffffe5","#253494", "#41ae76","#ffffe5", "#3f007d", "#f7fcb9"))+
   theme(axis.line = element_line(colour = "black", size = 0.4, linetype = "solid"),
-         axis.text.x=element_text(size=14, colour="black"),
-         axis.text.y=element_text(size=10, colour="black"))+
-  theme(axis.text.x=element_text(size=10, angle = 0),
-                   axis.title.x=element_text(size=12),
-                   axis.title.y=element_text(size=12),
+         axis.text.x=element_text(size=16, colour="black"),
+         axis.text.y=element_text(size=16, colour="black"))+
+  theme(axis.text.x=element_text(size=16, angle = 0),
+                   axis.title.x=element_text(size=18),
+                   axis.title.y=element_text(size=18),
                    strip.text.y=element_text(size=14,face="italic"),
                    strip.text.x=element_text(size=14,face="italic"),
                    legend.title = element_blank())+
@@ -170,12 +170,12 @@ chp1HRplot<-ggplot(SUMchp1hr, aes(x = workingdata_f, y = HR..bpm., colour= sessi
               #panel.grid.major=element_blank())+
                  #scale_colour_grey()
   #scale_colour_manual(values = c("#ffffe5","#253494", "#41ae76","#ffffe5", "#3f007d", "#f7fcb9"))+
- theme(axis.line = element_line(colour = "black", size = 0.4, linetype = "solid"),
-         axis.text.x=element_text(size=14, colour="black"),
-         axis.text.y=element_text(size=10, colour="black"))+
-  theme(axis.text.x=element_text(size=10, angle = 0),
-                   axis.title.x=element_text(size=12),
-                   axis.title.y=element_text(size=12),
+  theme(axis.line = element_line(colour = "black", size = 0.4, linetype = "solid"),
+         axis.text.x=element_text(size=16, colour="black"),
+         axis.text.y=element_text(size=16, colour="black"))+
+  theme(axis.text.x=element_text(size=16, angle = 0),
+                   axis.title.x=element_text(size=18),
+                   axis.title.y=element_text(size=18),
                    strip.text.y=element_text(size=14,face="italic"),
                    strip.text.x=element_text(size=14,face="italic"),
                    legend.title = element_blank())+
@@ -222,23 +222,28 @@ sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWB
                             labels = session_f.labs,
                             values = c("gray87", "light grey", "grey", "dark grey", "grey47"))+
      
-   theme(legend.position= "bottom")+
+   theme(legend.position= "")+
    #scale_fill_grey(start = 0.1, end = 0.4) +
   xlab("") + ylab("Sessional RPE \n")+
         #scale_x_discrete(breaks=c("one","two","three","four"),
               #labels=c("3", "5", "7", "9"))+
-  theme(axis.text.x=element_blank(),
-        axis.ticks.x = element_blank(),
-                   axis.title.x=element_text(size=10),
-                   axis.title.y=element_text(size=10),
-                   strip.text.y=element_text(size=12,face="italic"),
-                   strip.text.x=element_text(size=12,face="italic"),
-                   legend.title = element_blank())+
+   theme(axis.line = element_line(colour = "black", size = 0.4, linetype = "solid"),
+         axis.text.x=element_blank(),
+         axis.ticks.x = element_blank(),
+         axis.text.y=element_text(size=16, colour="black"))+
+  theme(axis.title.x=element_text(size=18),
+        axis.title.y=element_text(size=18),
+        strip.text.y=element_text(size=14,face="italic"),
+        strip.text.x=element_text(size=14,face="italic"),
+        legend.title = element_blank())+
                    geom_text(data = label.testsRPE_1, label = " b - c", position = pd)+
                    geom_text(data = label.testsRPE_2, label = " b", position = pd)+
                    geom_text(data = label.testsRPE_3, label = " d", position = pd)
 
-sRPEPLOT
+
+        
+ 
+ sRPEPLOT
             
 ```
 
