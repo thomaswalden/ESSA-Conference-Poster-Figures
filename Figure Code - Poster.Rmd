@@ -78,7 +78,7 @@ SUMVEplot
 ```
 
 ```{r}
-ggsave(plot=SUMVEplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\VE(ESSA Poster).png",units = "in",width = 15.0,height = 11.0)
+ggsave(plot=SUMVEplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\VE(ESSA Poster).png",units = "in",width = 15.0,height = 9.0)
 ```
 
 ##Figure 2 - Heart Rate
@@ -194,7 +194,7 @@ chp1HRplot
 ```
 
 ```{r}
-ggsave(plot=chp1HRplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\HR(ESSA Poster).png",units = "in",width = 15.0,height = 11.0)
+ggsave(plot=chp1HRplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\HR(ESSA Poster).png",units = "in",width = 15.0,height = 9)
 ```
 
 ##Figure 3a - Sessional RPE
@@ -238,8 +238,8 @@ sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWB
         strip.text.y=element_text(size=14,face="italic"),
         strip.text.x=element_text(size=14,face="italic"),
         legend.title = element_blank())+
-                   geom_text(data = label.testsRPE_1, label = " b - c", position = pd)+
-                   geom_text(data = label.testsRPE_2, label = " b", position = pd)+
+                   geom_text(data = label.testsRPE_1, label = " b", position = pd)+
+                   geom_text(data = label.testsRPE_2, label = " c", position = pd)+
                    geom_text(data = label.testsRPE_3, label = " d", position = pd)
 
 
@@ -305,8 +305,8 @@ label.testsRPD_1 <- data.frame(session_f = c("FWBFR"),
         strip.text.y=element_text(size=14,face="italic"),
         strip.text.x=element_text(size=14,face="italic"),
         legend.title = element_blank())+
-        geom_text(data = label.testsRPD_1, label = " b - c", position = pd)+
-        geom_text(data = label.testsRPD_2, label = " b", position = pd)+
+        geom_text(data = label.testsRPD_1, label = " b", position = pd)+
+        geom_text(data = label.testsRPD_2, label = " c", position = pd)+
         geom_text(data = label.testsRPD_3, label = " d", position = pd)
             
 RPDPLOT
@@ -319,6 +319,6 @@ SUBFIG
 ```
 
 ```{r}
-ggsave(plot=SUBFIG,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG(ESSA Poster).png",units = "in",width = 15.0,height = 11.0)
+ggsave(plot=SUBFIG,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG(ESSA Poster).png",units = "in",width = 15.0,height = 10.0)
 ```
 
