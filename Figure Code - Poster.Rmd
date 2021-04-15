@@ -1,11 +1,4 @@
 #ESSA Conference Poster - Figure Code
-```{r}
-devtools::install_github('Mikata-Project/ggthemr')
-
-1ggthemr('dust')
-```
-
-
 ##Figure 1 - Ventilation Volume
 ```{r}
 pd<- position_dodge(width = 0.6)
@@ -209,12 +202,10 @@ sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWB
  sRPEPLOT <- ggplot(sRPEmeans,aes(x=session_f, y=sRPE))+
         geom_errorbar(aes(ymin = sRPE-ci, ymax=sRPE+ci, group= session_f),colour = "black",position= pd)+   
      geom_col(aes(fill = session_f, group = session_f),position = pd1)+
-    scale_colour_ggthemr_d+   
-    theme_bw()+
-     
-     #scale_fill_manual(name = "session_f",
-                            #labels = session_f.labs,
-                            #values = c("lightpink1", "pink3", "grey", "red1"))+
+     theme_bw()+
+     scale_fill_manual(name = "session_f",
+                            labels = session_f.labs,
+                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
      
    theme(legend.position= "")+
    xlab("") + ylab("Rating of Perceived Exertion")+
@@ -277,7 +268,7 @@ RPDmeans$session_f = factor(RPDmeans$session, levels=c("SW","SWBFR","FW", "FWBFR
    
    scale_fill_manual(name = "session_f",
                             labels = session_f.labs,
-                            values = c("gray87", "light grey", "grey", "dark grey", "grey47"))+
+                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
    
    theme_bw()+
    theme(legend.position= "")+
@@ -309,6 +300,6 @@ SUBFIG
 ```
 
 ```{r}
-ggsave(plot=SUBFIG,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG(ESSA Poster).png",units = "in",width = 15.0,height = 10.0)
+ggsave(plot=SUBFIG,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG-COLOUR(ESSA Poster).png",units = "in",width = 15.0,height = 9.0)
 ```
 
