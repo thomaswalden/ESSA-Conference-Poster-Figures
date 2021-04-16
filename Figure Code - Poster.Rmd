@@ -42,10 +42,10 @@ SUMVEplot<-ggplot(SUMVE, aes(x = workingdata_f, y = VE, colour= session_f)) +
           
         scale_colour_manual(name = "session_f",
                             labels = session_f.labs,
-                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
+                            values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
         scale_shape_manual(name = "session_f",
                            labels = session_f.labs,
-                           values = c(22, 15, 21, 16))+
+                           values = c(15, 15, 16, 16))+
   
   facet_grid(~speed_f, labeller = labeller(speed_f = speed.labs))+
         theme(legend.position= "none")+
@@ -65,10 +65,10 @@ SUMVEplot<-ggplot(SUMVE, aes(x = workingdata_f, y = VE, colour= session_f)) +
                    strip.text.x=element_text(size=14,face="italic"),
                    legend.title = element_blank())+
                    
-  geom_text(data = label.testVE_2, label = "         a", position = pd)+
-  geom_text(data = label.testVE_3, label = "         a", position = pd)+
-  geom_text(data = label.testVE_4, label = "         a", position = pd)+
-  geom_text(data = label.testVE_5, label = "         a", position = pd)
+  geom_text(data = label.testVE_2, label = "         a", position = pd,colour="black")+
+  geom_text(data = label.testVE_3, label = "         a", position = pd,colour="black")+
+  geom_text(data = label.testVE_4, label = "         a", position = pd,colour="black")+
+  geom_text(data = label.testVE_5, label = "         a", position = pd,colour="black")
         
         
 SUMVEplot
@@ -141,13 +141,13 @@ SUMchp1hr$workingdata_f = factor(SUMchp1hr$workingdata, levels=c("PRE_REST","PER
 chp1HRplot<-ggplot(SUMchp1hr, aes(x = workingdata_f, y = HR..bpm., colour= session_f)) +
           geom_line(aes(group = session_f, colour = session_f), position = pd)+
           geom_errorbar(aes(ymin = HR..bpm.-ci, ymax=HR..bpm.+ci, group= session_f),colour = "black",position= pd)+
-          geom_point(aes(shape = session_f, colour = session_f), fill = "white", size = 4, stroke = 1.0, position= pd)+
+          geom_point(aes(shape = session_f), fill = "white", size = 4, stroke = 1.0, position= pd)+
                   scale_colour_manual(name = "session_f",
                             labels = session_f.labs,
-                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
+                            values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
                   scale_shape_manual(name = "session_f",
                            labels = session_f.labs,
-                           values = c(22, 15, 21, 16))+
+                           values = c(15, 15, 16, 16))+
         theme_bw()+
         theme(legend.position= "")+
         xlab("\n Exercise Duration") + ylab("Heart Rate (beats/min) \n")+
@@ -165,15 +165,15 @@ chp1HRplot<-ggplot(SUMchp1hr, aes(x = workingdata_f, y = HR..bpm., colour= sessi
                    strip.text.y=element_text(size=14,face="italic"),
                    strip.text.x=element_text(size=14,face="italic"),
                    legend.title = element_blank())+
-                   geom_text(data = label.testHR_2, label = "             a")+
-                   geom_text(data = label.testHR_3, label = "             a")+
-                   geom_text(data = label.testHR_4, label = "             a")+
-                   geom_text(data = label.testHR_5, label = "             a")+
-                   geom_text(data = label.testHRsw_1, label = "            a")+
-                   geom_text(data = label.testHRsw_2, label = "            a")+
-                   geom_text(data = label.testHRsw_3, label = "            a")+
-                   geom_text(data = label.testHRsw_4, label = "            a")+
-                   geom_text(data = label.testHRsw_5, label = "            a")
+                   geom_text(data = label.testHR_2, label = "             a",colour="black")+
+                   geom_text(data = label.testHR_3, label = "             a",colour="black")+
+                   geom_text(data = label.testHR_4, label = "             a",colour="black")+
+                   geom_text(data = label.testHR_5, label = "             a",colour="black")+
+                   geom_text(data = label.testHRsw_1, label = "            a",colour="black")+
+                   geom_text(data = label.testHRsw_2, label = "            a",colour="black")+
+                   geom_text(data = label.testHRsw_3, label = "            a",colour="black")+
+                   geom_text(data = label.testHRsw_4, label = "            a",colour="black")+
+                   geom_text(data = label.testHRsw_5, label = "            a",colour="black")
                         
 
 chp1HRplot
@@ -205,7 +205,7 @@ sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWB
      theme_bw()+
      scale_fill_manual(name = "session_f",
                             labels = session_f.labs,
-                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
+                            values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
      
    theme(legend.position= "")+
    xlab("") + ylab("Rating of Perceived Exertion")+
@@ -268,7 +268,7 @@ RPDmeans$session_f = factor(RPDmeans$session, levels=c("SW","SWBFR","FW", "FWBFR
    
    scale_fill_manual(name = "session_f",
                             labels = session_f.labs,
-                            values = c("#FFCDD2", "#EF9A9A", "#E53935", "#C62828"))+
+                            values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
    
    theme_bw()+
    theme(legend.position= "")+
