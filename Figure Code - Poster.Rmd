@@ -38,7 +38,7 @@ session_f.labs<- c("Comfortable Walk", "Comfortable Walk + BFR", "Fast Walk", "F
 SUMVEplot<-ggplot(SUMVE, aes(x = workingdata_f, y = VE, colour= session_f)) +
           geom_line(aes(colour = session_f, group = session_f), position = pd)+
           geom_errorbar(aes(ymin = VE-ci, ymax=VE+ci, group= session_f),width = .5,colour = "black",position= pd)+
-          geom_point(aes(shape = session_f, colour = session_f),fill = "white", size = 4, stroke = 1.0, position= pd)+
+          geom_point(aes(shape = session_f, colour = session_f),fill = "white", size = 6, stroke = 1.0, position= pd)+
           
         scale_colour_manual(name = "session_f",
                             labels = session_f.labs,
@@ -75,7 +75,7 @@ SUMVEplot
 ```
 
 ```{r}
-ggsave(plot=SUMVEplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\VE(ESSA Poster-Colour).png",units = "in",width = 15.0,height = 9.0)
+ggsave(plot=SUMVEplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\VE(ESSA Poster-Colour)2.png",units = "in",width = 15.0,height = 9.0)
 ```
 
 ##Figure 2 - Heart Rate
@@ -141,7 +141,7 @@ SUMchp1hr$workingdata_f = factor(SUMchp1hr$workingdata, levels=c("PRE_REST","PER
 chp1HRplot<-ggplot(SUMchp1hr, aes(x = workingdata_f, y = HR..bpm., colour= session_f)) +
           geom_line(aes(group = session_f, colour = session_f), position = pd)+
           geom_errorbar(aes(ymin = HR..bpm.-ci, ymax=HR..bpm.+ci, group= session_f),colour = "black",position= pd)+
-          geom_point(aes(shape = session_f), fill = "white", size = 4, stroke = 1.0, position= pd)+
+          geom_point(aes(shape = session_f), fill = "white", size = 6, stroke = 1.0, position= pd)+
                   scale_colour_manual(name = "session_f",
                             labels = session_f.labs,
                             values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
@@ -180,7 +180,7 @@ chp1HRplot
 ```
 
 ```{r}
-ggsave(plot=chp1HRplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\HR(ESSA Poster-Colour).png",units = "in",width = 15.0,height = 9)
+ggsave(plot=chp1HRplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\HR(ESSA Poster-Colour)2.png",units = "in",width = 15.0,height = 9)
 ```
 
 ##Figure 3a - Sessional RPE
