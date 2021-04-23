@@ -183,29 +183,36 @@ chp1HRplot
 ggsave(plot=chp1HRplot,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\HR(ESSA Poster-Colour)2.png",units = "in",width = 15.0,height = 9)
 ```
 
-##Figure 3a - Sessional RPE
+##Figure 3a - Session RPE
+
 ```{r}
 sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWBFR", "JOG"))
  session_f.labs<- c("Comfortable Walk", "Comfortable Walk + BFR", "Fast Walk", "Fast Walk + BFR", "Jogging")
  
  names(session_f.labs)<-c("SW","SWBFR","FW", "FWBFR", "JOG")
  
+ sRPEmeans2$session_f = factor(sRPEmeans2$session, levels=c("SW","SWBFR","FW", "FWBFR", "JOG"))
+ session_f.labs<- c("Comfortable Walk", "Comfortable Walk + BFR", "Fast Walk", "Fast Walk + BFR", "Jogging")
+ 
+ names(session_f.labs)<-c("SW","SWBFR","FW", "FWBFR", "JOG")
+ 
   label.testsRPE_1 <- data.frame(session_f = c("FWBFR"),
-                                           sRPE = c(6.5))
+                                           sRPE = c(9.5))
   
   label.testsRPE_2 <- data.frame(session_f = c("SWBFR"),
-                                         sRPE = c(4.5))
+                                         sRPE = c(8.5))
   
   label.testsRPE_3 <- data.frame(session_f = c("FW"),
-                                         sRPE = c(4.5))
- 
- sRPEPLOT <- ggplot(sRPEmeans,aes(x=session_f, y=sRPE))+
-        geom_errorbar(aes(ymin = sRPE-ci, ymax=sRPE+ci, group= session_f),colour = "black",position= pd)+   
-     geom_col(aes(fill = session_f, group = session_f),position = pd1)+
-     theme_bw()+
+                                         sRPE = c(6.5))
+   sRPEdPLOT <- ggplot(sRPEmeans,aes(x=session_f, fill=session_f, y=sRPE))+
+       geom_dotplot(binaxis = "y", stackdir = "centerwhole", binwidth = .6)+
+       geom_errorbar(data = sRPEmeans2,aes(ymin = sRPE, ymax=sRPE),width = 0.5,size=2,colour = "black",position = pd1)+
+              
+   theme_bw()+
      scale_fill_manual(name = "session_f",
                             labels = session_f.labs,
                             values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
+     
      
    theme(legend.position= "")+
    xlab("") + ylab("Rating of Perceived Exertion")+
@@ -225,54 +232,47 @@ sRPEmeans$session_f = factor(sRPEmeans$session, levels=c("SW","SWBFR","FW", "FWB
    geom_text(data = label.testsRPE_1, label = " b", position = pd)+
    geom_text(data = label.testsRPE_2, label = " c", position = pd)+
    geom_text(data = label.testsRPE_3, label = " d", position = pd)
-
-
-        
- 
- sRPEPLOT
-            
+     
+     
+     
+sRPEdPLOT  
 ```
 
 ```{r}
-ggsave(plot=sRPEPLOT,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\sRPE(ESSA Poster).png",units = "in",width = 15.0,height = 11.0)
+ggsave(plot=sRPEdPLOT,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG-COLOUR(ESSA Poster)dots1.png",units = "in",width = 15.0,height = 9.0)
 ```
-
-##Figure 3b - Sessional Discomfort
-
-```{r}
-RPDmeans <- AAA_RPEBIND%>%
-  summarySE(measurevar = "RPD", groupvar =c("session"), na.rm = TRUE, conf.interval = 0.95, .drop = TRUE)%>%
-filter(!session %in% "JOG")
-```
-
 
 ```{r}
 RPDmeans$session_f = factor(RPDmeans$session, levels=c("SW","SWBFR","FW", "FWBFR", "JOG"))
-
-  label.testsRPD_1 <- data.frame(session_f = c("FWBFR"),
-                                           RPD = c(6.5))
-  
-  label.testsRPD_2 <- data.frame(session_f = c("SWBFR"),
-                                         RPD = c(4.7))
-  
-  label.testsRPD_3 <- data.frame(session_f = c("FW"),
-                                         RPD = c(3))
-
-
-
  session_f.labs<- c("Comfortable Walk", "Comfortable Walk + BFR", "Fast Walk", "Fast Walk + BFR", "Jogging")
+ 
  names(session_f.labs)<-c("SW","SWBFR","FW", "FWBFR", "JOG")
- RPDPLOT <- ggplot(RPDmeans,aes(x=session_f, y=RPD))+
-   geom_errorbar(aes(ymin = pmax(RPD-ci, 0.05), ymax=RPD+ci, group= session_f),colour = "black",position= pd1)+         
-   geom_col(aes(fill = session_f, group = session_f),position = pd1)+
-   
-   scale_fill_manual(name = "session_f",
+ 
+ RPDmeans2$session_f = factor(RPDmeans2$session, levels=c("SW","SWBFR","FW", "FWBFR", "JOG"))
+ session_f.labs<- c("Comfortable Walk", "Comfortable Walk + BFR", "Fast Walk", "Fast Walk + BFR", "Jogging")
+ 
+ names(session_f.labs)<-c("SW","SWBFR","FW", "FWBFR", "JOG")
+ 
+  label.testsRPE_1 <- data.frame(session_f = c("FWBFR"),
+                                           RPD = c(9))
+  
+  label.testsRPE_2 <- data.frame(session_f = c("SWBFR"),
+                                         RPD = c(8))
+  
+  label.testsRPE_3 <- data.frame(session_f = c("FW"),
+                                         RPD = c(7))
+   RPDdPLOT <- ggplot(RPDmeans,aes(x=session_f, fill=session_f, y=RPD))+
+       geom_dotplot(binaxis = "y", stackdir = "centerwhole", binwidth = .6)+
+       geom_errorbar(data = RPDmeans2,aes(ymin = RPD, ymax=RPD),width = 0.5,size=2,colour = "black",position = pd1)+
+              
+   theme_bw()+
+     scale_fill_manual(name = "session_f",
                             labels = session_f.labs,
                             values = c("#F06292", "#E91E63", "#F44336", "#C62828"))+
-   
-   theme_bw()+
+     
+     
    theme(legend.position= "")+
-   xlab("") + ylab("Limb Discomfort")+
+   xlab("") + ylab("Rating of Perceived Discomfort")+
         
    scale_y_continuous(breaks = c(0,1,2,3,4,5,6,7,8,9,10), limits = c(0,10))+
    
@@ -285,21 +285,27 @@ RPDmeans$session_f = factor(RPDmeans$session, levels=c("SW","SWBFR","FW", "FWBFR
          strip.text.y=element_text(size=14,face="italic"),
          strip.text.x=element_text(size=14,face="italic"),
          legend.title = element_blank())+
-        
-   geom_text(data = label.testsRPD_1, label = " b", position = pd)+
-   geom_text(data = label.testsRPD_2, label = " c", position = pd)+
-   geom_text(data = label.testsRPD_3, label = " d", position = pd)
-            
-RPDPLOT
+                   
+   geom_text(data = label.testsRPE_1, label = " b", position = pd)+
+   geom_text(data = label.testsRPE_2, label = " c", position = pd)+
+   geom_text(data = label.testsRPE_3, label = " d", position = pd)
+     
+     
+     
+RPDdPLOT  
 ```
 
 ```{r}
-SUBFIG <- ggarrange(sRPEPLOT,RPDPLOT, labels=c("A", "B"), ncol=1, nrow=2, common.legend = TRUE, legend = "none")
+ggsave(plot=RPDdPLOT,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG-COLOUR(ESSA Poster)dots2.png",units = "in",width = 15.0,height = 9.0)
+```
 
-SUBFIG
+
+```{r}
+SUBFIGdots <- ggarrange(sRPEdPLOT,RPDdPLOT, labels=c("A", "B"), ncol=1, nrow=2, common.legend = TRUE, legend = "none")
+
+SUBFIGdots
 ```
 
 ```{r}
-ggsave(plot=SUBFIG,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG-COLOUR(ESSA Poster).png",units = "in",width = 15.0,height = 9.0)
+ggsave(plot=SUBFIGdots,"C:\\Users\\thoma\\OneDrive - Murdoch University\\Desktop\\PhD 2020\\Conferences\\ESSA\\WALK STUDY\\SUBFIG-COLOUR(ESSA Poster)dots3.png",units = "in",width = 15.0,height = 9.0)
 ```
-
